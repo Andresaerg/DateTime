@@ -1,0 +1,69 @@
+{
+  "name": "helloworld",
+  "displayName": "HelloWorld",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "My extension configuration",
+      "properties": {
+        "myExtension.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable/disable this extension"
+        },
+        "myExtension.showDate": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show the date in the status bar"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "helloworld.helloWorld",
+        "title": "My extension"
+      },
+      {
+        "command": "myExtension.openMenu",
+        "title": "My Extension: Open Menu"
+      },
+      {
+        "command": "myExtension.toggleEnable",
+        "title": "My Extension: Toggle Enable"
+      },
+      {
+        "command": "myExtension.toggleShowDate",
+        "title": "My Extension: Toggle Show Date"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@typescript-eslint/eslint-plugin": "^8.39.0",
+    "@typescript-eslint/parser": "^8.39.0",
+    "eslint": "^9.32.0",
+    "typescript": "^5.9.2",
+    "@vscode/test-cli": "^0.0.11",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
