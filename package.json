@@ -25,14 +25,20 @@
           "type": "boolean",
           "default": false,
           "description": "Show the date in the status bar"
+        },
+        "myExtension.militaryTime": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show the time in military time"
+        },
+        "myExtension.customTimeFormat": {
+          "type": "string",
+          "default": "",
+          "description": "Custom time format (e.g., 'HH:mm:ss', 'h:mm a'). Leave empty to use system default. Only applies when military time is disabled."
         }
       }
     },
     "commands": [
-      {
-        "command": "helloworld.helloWorld",
-        "title": "My extension"
-      },
       {
         "command": "myExtension.openMenu",
         "title": "My Extension: Open Menu"
@@ -44,6 +50,14 @@
       {
         "command": "myExtension.toggleShowDate",
         "title": "My Extension: Toggle Show Date"
+      },
+      {
+        "command": "myExtension.toggleMilitaryTime",
+        "title": "My Extension: Toggle Military Time"
+      },
+      {
+        "command": "myExtension.toggleCustomFormat",
+        "title": "My Extension: Toggle Custom Format"
       }
     ]
   },
