@@ -1,71 +1,92 @@
 {
-  "name": "helloworld",
-  "displayName": "HelloWorld",
-  "description": "",
-  "version": "0.0.1",
+  "name": "datetime",
+  "displayName": "DateTime",
+  "description": "Extension for those who like keep their OS toolbar hidden by default.",
+  "version": "0.0.3",
   "engines": {
     "vscode": "^1.85.0"
   },
+  "author": {
+    "name": "Andres Rosales"
+  },
+  "publisher": "Andresaerg",
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Andresaerg/DateTime.git"
+  },
+  "license": "MIT",
   "categories": [
     "Other"
   ],
-  "activationEvents": ["onStartupFinished"],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "configuration": {
       "type": "object",
-      "title": "My extension configuration",
+      "title": "DateTime Configuration",
       "properties": {
-        "myExtension.enable": {
+        "datetime.enable": {
           "type": "boolean",
           "default": true,
           "description": "Enable/disable this extension"
         },
-        "myExtension.showDate": {
+        "datetime.showDate": {
           "type": "boolean",
           "default": false,
           "description": "Show the date in the status bar"
         },
-        "myExtension.militaryTime": {
+        "datetime.militaryTime": {
           "type": "boolean",
           "default": false,
           "description": "Show the time in military time"
         },
-        "myExtension.customTimeFormat": {
+        "datetime.customTimeFormat": {
           "type": "string",
           "default": "",
           "description": "Custom time format (e.g., 'HH:mm:ss', 'h:mm a'). Leave empty to use system default. Only applies when military time is disabled."
+        },
+        "datetime.showInternetConnectionStatus": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show the internet connection status in the status bar"
         }
       }
     },
     "commands": [
       {
-        "command": "myExtension.openMenu",
-        "title": "My Extension: Open Menu"
+        "command": "datetime.openMenu",
+        "title": "Open Menu"
       },
       {
-        "command": "myExtension.toggleEnable",
-        "title": "My Extension: Toggle Enable"
+        "command": "datetime.toggleEnable",
+        "title": "Toggle Enable"
       },
       {
-        "command": "myExtension.toggleShowDate",
-        "title": "My Extension: Toggle Show Date"
+        "command": "datetime.toggleShowDate",
+        "title": "Toggle Show Date"
       },
       {
-        "command": "myExtension.toggleMilitaryTime",
-        "title": "My Extension: Toggle Military Time"
+        "command": "datetime.toggleMilitaryTime",
+        "title": "Toggle Military Time"
       },
       {
-        "command": "myExtension.toggleCustomFormat",
-        "title": "My Extension: Toggle Custom Format"
+        "command": "datetime.toggleCustomFormat",
+        "title": "Toggle Custom Format"
+      },
+      {
+        "command": "datetime.toggleInternetConnectionStatus",
+        "title": "Toggle Internet Connection Status"
       }
     ]
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile",
+    "vscode:prepublish": "pnpm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "pretest": "npm run compile && npm run lint",
+    "pretest": "pnpm run compile && pnpm run lint",
     "lint": "eslint src",
     "test": "vscode-test"
   },
